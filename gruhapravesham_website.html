@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gruhapravesham — Srinivasarao & Subhashini</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Serif+Telugu:wght@400;700&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #f5c842;
+    --gold-deep: #c8860a;
+    --gold-light: #fde68a;
+    --red: #8b1a1a;
+    --red-bright: #c0392b;
+    --cream: #fff8e7;
+    --dark: #1a0800;
+    --dark2: #2d1000;
+    --text-warm: #d4a855;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+  }
+
+  /* ====== HERO ====== */
+  .hero {
+    min-height: 100vh;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(139,26,26,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(200,134,10,0.2) 0%, transparent 60%),
+      linear-gradient(180deg, #0d0500 0%, #1c0800 30%, #2d1200 60%, #1c0800 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Rangoli background */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      repeating-conic-gradient(rgba(200,134,10,0.06) 0% 25%, transparent 0% 50%);
+    background-size: 50px 50px;
+  }
+
+  /* Animated border light */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 1.2s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-om {
+    font-size: 64px;
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(245,200,66,0.7), 0 0 60px rgba(245,200,66,0.3);
+    margin-bottom: 8px;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { text-shadow: 0 0 30px rgba(245,200,66,0.7), 0 0 60px rgba(245,200,66,0.3); }
+    50% { text-shadow: 0 0 50px rgba(245,200,66,1), 0 0 100px rgba(245,200,66,0.5); }
+  }
+
+  .hero-telugu {
+    font-family: 'Noto Serif Telugu', serif;
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 700;
+    color: var(--gold-light);
+    text-shadow: 0 0 20px rgba(253,230,138,0.4);
+    margin-bottom: 6px;
+    letter-spacing: 3px;
+  }
+
+  .hero-english {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(22px, 4.5vw, 42px);
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    margin: 16px 0;
+  }
+  .hdiv-line {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-deep));
+  }
+  .hdiv-line.right { background: linear-gradient(90deg, var(--gold-deep), transparent); }
+  .hdiv-gem {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px var(--gold);
+  }
+
+  .hero-names {
+    font-size: clamp(20px, 3.5vw, 32px);
+    color: var(--gold-light);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .hero-subtext {
+    font-size: clamp(13px, 2vw, 17px);
+    color: var(--text-warm);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-date-badge {
+    margin-top: 24px;
+    display: inline-block;
+    background: rgba(200,134,10,0.15);
+    border: 1px solid var(--gold-deep);
+    padding: 12px 32px;
+    border-radius: 2px;
+    position: relative;
+  }
+  .hero-date-badge::before, .hero-date-badge::after {
+    content: '✦';
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 14px;
+  }
+  .hero-date-badge::before { left: 10px; }
+  .hero-date-badge::after { right: 10px; }
+  .badge-date {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(14px, 2vw, 18px);
+    color: var(--gold);
+    letter-spacing: 3px;
+  }
+  .badge-day {
+    font-size: 13px;
+    color: var(--text-warm);
+    margin-top: 3px;
+    letter-spacing: 2px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold-deep);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ====== SECTION BASE ====== */
+  section {
+    padding: 70px 20px;
+    position: relative;
+  }
+  .section-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .section-label {
+    font-size: 11px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(20px, 3vw, 28px);
+    color: var(--gold);
+    letter-spacing: 3px;
+  }
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 14px;
+  }
+  .sdiv-line {
+    width: 60px; height: 1px;
+    background: var(--gold-deep);
+  }
+  .sdiv-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+
+  /* ====== ABOUT / BLESSINGS ====== */
+  .blessings-section {
+    background: linear-gradient(180deg, var(--dark) 0%, var(--dark2) 50%, var(--dark) 100%);
+  }
+  .blessing-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,134,10,0.3);
+    border-top: 2px solid var(--gold-deep);
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .blessing-card::before {
+    content: '🪔';
+    position: absolute;
+    top: -18px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    background: var(--dark2);
+    padding: 0 8px;
+  }
+  .blessing-by {
+    font-size: 12px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+  .blessing-parents {
+    font-family: 'Yatra One', cursive;
+    font-size: 24px;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .blessing-invite {
+    font-size: 16px;
+    color: var(--text-warm);
+    font-style: italic;
+    margin: 12px 0;
+  }
+  .blessing-hosts {
+    font-family: 'Yatra One', cursive;
+    font-size: 30px;
+    color: var(--gold);
+    text-shadow: 0 0 15px rgba(245,200,66,0.3);
+  }
+
+  /* ====== SCHEDULE ====== */
+  .schedule-section {
+    background: var(--dark2);
+  }
+  .timeline {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    padding-left: 20px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--gold-deep) 20%, var(--gold-deep) 80%, transparent);
+  }
+  .timeline-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 36px;
+    padding-left: 24px;
+    position: relative;
+    animation: slideIn 0.6s ease both;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .timeline-dot {
+    position: absolute;
+    left: 12px; top: 20px;
+    width: 16px; height: 16px;
+    background: var(--dark2);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px var(--gold);
+  }
+  .timeline-time {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 16px;
+    color: var(--gold);
+    min-width: 90px;
+    padding-top: 14px;
+  }
+  .timeline-content {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,134,10,0.25);
+    border-left: 3px solid var(--gold-deep);
+    padding: 14px 18px;
+    border-radius: 0 4px 4px 0;
+  }
+  .timeline-icon { font-size: 22px; margin-bottom: 4px; }
+  .timeline-event {
+    font-size: 18px;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-warm);
+    font-style: italic;
+  }
+
+  /* ====== DETAILS ====== */
+  .details-section {
+    background: var(--dark);
+  }
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .detail-tile {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,134,10,0.3);
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .detail-tile:hover {
+    background: rgba(200,134,10,0.08);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .detail-tile::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 20%; right: 20%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-deep), transparent);
+  }
+  .tile-icon { font-size: 30px; margin-bottom: 10px; }
+  .tile-label {
+    font-size: 10px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+  .tile-value {
+    font-size: 17px;
+    color: var(--gold-light);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .tile-sub {
+    font-size: 13px;
+    color: var(--text-warm);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* ====== VENUE ====== */
+  .venue-section {
+    background: var(--dark2);
+  }
+  .venue-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,134,10,0.3);
+    overflow: hidden;
+  }
+  .venue-map-placeholder {
+    height: 260px;
+    background: linear-gradient(135deg, #1a0800, #2d1200, #1a0800);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .venue-map-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(200,134,10,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,134,10,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  .map-pin {
+    font-size: 48px;
+    position: relative;
+    z-index: 1;
+    animation: pinBounce 2s ease-in-out infinite;
+  }
+  @keyframes pinBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .map-coords {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 12px;
+    color: var(--gold-deep);
+    margin-top: 8px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+  }
+  .map-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 20px;
+    border: 1px solid var(--gold-deep);
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .map-btn:hover {
+    background: var(--gold-deep);
+    color: var(--dark);
+  }
+  .venue-details {
+    padding: 24px 28px;
+  }
+  .venue-main-name {
+    font-family: 'Yatra One', cursive;
+    font-size: 26px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .venue-address-text {
+    font-size: 16px;
+    color: var(--text-warm);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ====== RSVP / FOOTER ====== */
+  .footer-section {
+    background: linear-gradient(180deg, var(--dark2) 0%, #0d0500 100%);
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(200,134,10,0.3);
+  }
+  .footer-blessing {
+    font-family: 'Noto Serif Telugu', serif;
+    font-size: 22px;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+  .footer-english {
+    font-size: 16px;
+    color: var(--text-warm);
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .footer-floral {
+    font-size: 24px;
+    color: var(--gold-deep);
+    letter-spacing: 8px;
+    margin-top: 20px;
+  }
+  .footer-hosts {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 14px;
+    color: var(--gold-deep);
+    letter-spacing: 3px;
+    margin-top: 24px;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 14px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13,5,0,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(200,134,10,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 11px;
+    color: var(--text-warm);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .timeline { padding-left: 10px; }
+    .timeline-item { padding-left: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Gruhapravesham</div>
+  <ul class="nav-links">
+    <li><a href="#blessings">About</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#venue">Venue</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-om">ॐ</div>
+    <div class="hero-telugu">గృహప్రవేశం</div>
+    <div class="hero-english">GRUHAPRAVESHAM</div>
+
+    <div class="hero-divider">
+      <div class="hdiv-line"></div>
+      <div class="hdiv-gem"></div>
+      <div class="hdiv-line right"></div>
+    </div>
+
+    <div class="hero-names">Sri Srinivasarao & Smt. Subhashini</div>
+    <div class="hero-subtext">Cordially invite you to their New Home</div>
+
+    <div class="hero-date-badge">
+      <div class="badge-date">Sunday · 12th April 2026</div>
+      <div class="badge-day">Muhurtham at 4:13 AM · KMM, Vidyanagar</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">↓ Scroll ↓</div>
+</div>
+
+<!-- BLESSINGS -->
+<section class="blessings-section" id="blessings">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">With Divine Blessings</div>
+      <div class="section-title">The Auspicious Occasion</div>
+      <div class="section-divider">
+        <div class="sdiv-line"></div>
+        <div class="sdiv-dot"></div>
+        <div class="sdiv-line"></div>
+      </div>
+    </div>
+
+    <div class="blessing-card">
+      <div class="blessing-by">Under the Blessings of</div>
+      <div class="blessing-parents">Sri Baburao & Smt. Badrakali</div>
+      <div class="blessing-invite">are delighted to invite you to the housewarming of their son and daughter-in-law</div>
+      <div class="hero-divider" style="margin: 14px 0;">
+        <div class="hdiv-line" style="width:60px; background: linear-gradient(90deg,transparent,var(--gold-deep))"></div>
+        <div class="hdiv-gem" style="width:7px;height:7px"></div>
+        <div class="hdiv-line right" style="width:60px;background:linear-gradient(90deg,var(--gold-deep),transparent)"></div>
+      </div>
+      <div class="blessing-hosts">Sri Srinivasarao & Smt. Subhashini</div>
+    </div>
+
+    <div style="text-align:center; margin-top:28px; font-size:16px; color:var(--text-warm); font-style:italic; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.8;">
+      "May this home be filled with joy, prosperity, and the fragrance of devotion. May Lord Ganesha bless this abode and all who enter."
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section" id="schedule">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Programme</div>
+      <div class="section-title">Day's Schedule</div>
+      <div class="section-divider">
+        <div class="sdiv-line"></div>
+        <div class="sdiv-dot"></div>
+        <div class="sdiv-line"></div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">4:13 AM</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">🏠</div>
+          <div class="timeline-event">Gruhapravesham Muhurtham</div>
+          <div class="timeline-desc">Auspicious entry into the new home — the sacred moment chosen by the stars</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:00 AM</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">🙏</div>
+          <div class="timeline-event">Veetham & Pooja Ceremonies</div>
+          <div class="timeline-desc">Sacred rituals and blessings for the new household</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-content">
+          <div class="timeline-icon">🍽️</div>
+          <div class="timeline-event">Grand Lunch — Bhojanam</div>
+          <div class="timeline-desc">A sumptuous traditional Telugu feast served with love</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="details-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">At a Glance</div>
+      <div class="section-title">Event Details</div>
+      <div class="section-divider">
+        <div class="sdiv-line"></div>
+        <div class="sdiv-dot"></div>
+        <div class="sdiv-line"></div>
+      </div>
+    </div>
+    <div class="details-grid">
+      <div class="detail-tile">
+        <div class="tile-icon">🌙</div>
+        <div class="tile-label">Muhurtham Time</div>
+        <div class="tile-value">4:13 AM</div>
+        <div class="tile-sub">Auspicious Hour</div>
+      </div>
+      <div class="detail-tile">
+        <div class="tile-icon">📅</div>
+        <div class="tile-label">Date</div>
+        <div class="tile-value">12th April 2026</div>
+        <div class="tile-sub">Sunday — Bhanu Vaaram</div>
+      </div>
+      <div class="detail-tile">
+        <div class="tile-icon">🕘</div>
+        <div class="tile-label">Veetham</div>
+        <div class="tile-value">9:00 AM</div>
+        <div class="tile-sub">Pooja & Rituals</div>
+      </div>
+      <div class="detail-tile">
+        <div class="tile-icon">🍛</div>
+        <div class="tile-label">Bhojanam</div>
+        <div class="tile-value">12:30 PM</div>
+        <div class="tile-sub">Traditional Lunch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue-section" id="venue">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Location</div>
+      <div class="section-title">Venue</div>
+      <div class="section-divider">
+        <div class="sdiv-line"></div>
+        <div class="sdiv-dot"></div>
+        <div class="sdiv-line"></div>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="venue-map-placeholder">
+        <div class="map-pin">📍</div>
+        <div class="map-coords">17.266872° N · 80.141891° E</div>
+        <a class="map-btn" href="https://maps.google.com/?q=17.266872,80.141891" target="_blank">Open in Google Maps ↗</a>
+      </div>
+      <div class="venue-details">
+        <div class="venue-main-name">KMM — Raparthinagar</div>
+        <div class="venue-address-text">
+          Vidyanagar, Karimnagar<br>
+          Telangana
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-section">
+  <div class="footer-blessing">మీ రాకతో మా గృహం పావనమగుగాక 🙏</div>
+  <div class="footer-english">"May your arrival sanctify our home"</div>
+  <div style="font-size:13px; color:var(--gold-deep); letter-spacing:2px;">Your presence is our greatest blessing</div>
+
+  <div class="footer-floral">❧ ✾ ❧ ✾ ❧ ✾ ❧</div>
+  <div class="footer-hosts">Sri Srinivasarao & Smt. Subhashini</div>
+  <div style="font-size:12px; color:var(--text-warm); margin-top:8px; font-style:italic;">S/o Sri Baburao & Smt. Badrakali</div>
+</div>
+
+</body>
+</html>
